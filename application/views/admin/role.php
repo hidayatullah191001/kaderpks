@@ -1,94 +1,92 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
+    <!-- Page Heading -->
+    <h4 class="font-weight-bold text-pks py-3 mb-0"><?=$title ?></h4>
 
-<style type="text/css">
-    .nopadding {
-       padding: 0 !important;
-       margin: 0 !important;
-   }
-</style>
-<!-- [ Layout content ] Start -->
-<div class="layout-content">
+    <div class="row">
+        <div class="col-lg-6">
 
-    <!-- [ content ] Start -->
-    <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-0"><?=$title ?></h4>
-        <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#"><i class="feather icon-home"></i></a></li>
-                <li class="breadcrumb-item active"><a href="#"><?=$title ?></a></li>
-            </ol>
-        </div>
+            <?= form_error('menu', '<div class="alert alert-danger text-danger">
+         				<div class = "icon text-white">
+         				<i class="fas fa-fw fa-ban"></i>
+         				</div>
+         				', '
+         				</div>') ?>
 
-        <?php echo $this->session->flashdata('message') ?>
+            <?= $this->session->flashdata('message') ?>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            <span class="fas fa-fw fa-plus"></span>&nbsp;&nbsp;Add new role
-        </button>
+            <a data-toggle="modal" data-target="#newRoleModal" class="btn btn-pks btn-icon-split mb-3">
+                <span class="icon text-white-20">
+                    <i class="fas fa-fw fa-plus"></i>
+                </span>
+                <span class="text">Add New Role</span></a>
 
-
-        <br>
-        <br>
-
-        <div class="col-sm-6 nopadding">
+                <br><br>
             <div class="card">
+                <h6 class="card-header orangePks">All Role</h6>
                 <div class="card-body">
-                    <table class="table table-hover">
-                        <thead class="bg-primary text-white">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Role</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i=1; ?>
-                            <?php foreach ($role as $rl) : ?>
-                                <tr>
-                                    <th scope="row"><?= $i ?></th>
-                                    <td><?=$rl['role']?></td>
-                                    <td>
-                                        <a class="btn icon-btn btn-outline-warning" href="<?= base_url('admin/roleAccess/').$rl['id_role']?>"><i class="oi oi-eye"></i></a>
-                                        <!-- <a class="btn icon-btn btn-outline-success" href="<?= base_url('admin/edit_menu/').$rl['id_role'] ?>"><i class="oi oi-pencil"></i></a> -->
-                                        <?php if ($rl['id_role'] != 1 ) : ?>
-                                          <a class="btn icon-btn btn-outline-danger" href="<?= base_url('admin/delete_role/').$rl['id_role']?>"><i class="oi oi-trash"></i></a>
-                                      <?php endif ?>
-                                  </td>
-                              </tr>
-                              <?php $i++; ?>
-                          <?php endforeach ?>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<!-- [ content ] End -->
+                <table class="table table-hover">
+                <thead class="text-white bg-pks">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($role as $r) : ?>
+                        <tr>
+                            <th class="text-pks" scope="row"><?= $i ?></th>
+                            <td class="text-pks"><?= $r['role'] ?></td>
+                            <td>
+                                <a class="btn btn-warning btn-circle btn-sm" href="<?= base_url('admin/roleaccess/') . $r['id_role'] ?>"><i class="fas fa-fw fa-eye"></i></a>
 
+                                <a class="btn btn-success btn-circle btn-sm" href="<?= base_url('/') . $r['id_role'] ?>"><i class="fas fa-fw fa-edit"></i></a>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="newMenuModalLabel">Add New Role</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form method="post" action="<?=base_url('admin/role') ?>">
-            <div class="modal-body">
-                <div class="form-group">
-                    <input type="text"class="form-control" id="role" name="role" placeholder="Role name">
+                                <?php if ($r['id_role'] != 1) : ?>
+                                    <a class="btn btn-danger btn-circle btn-sm" href="<?= base_url('admin/delete_role/') . $r['id_role'] ?>"><i class="fas fa-fw fa-trash"></i></a>
+                                <?php endif ?>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Modal -->
+<div class="modal fade" id="newRoleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-pks" id="newMenuModalLabel">Add New Role</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </form>
+            <form method="post" action="<?= base_url('admin/role') ?>">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="" class="text-pks">Role Name</label>
+                        <input type="text" class="form-control" id="role" name="role" placeholder="Role name...">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-pks">Add</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-</div>
-

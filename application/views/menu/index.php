@@ -1,10 +1,8 @@
-
-
 <style type="text/css">
     .nopadding {
-     padding: 0 !important;
-     margin: 0 !important;
- }
+        padding: 0 !important;
+        margin: 0 !important;
+    }
 </style>
 <!-- Branch versi 1-->
 
@@ -15,11 +13,11 @@
 
     <!-- [ content ] Start -->
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-0"><?=$title ?></h4>
+        <h4 class="font-weight-bold py-3 mb-0"><?= $title ?></h4>
         <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#"><i class="feather icon-home"></i></a></li>
-                <li class="breadcrumb-item active"><a href="#"><?=$title ?></a></li>
+                <li class="breadcrumb-item active"><a href="#"><?= $title ?></a></li>
             </ol>
         </div>
 
@@ -41,20 +39,20 @@
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Menu</th>
+                                <th scope="col"></th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i=1; ?>
-                            <?php foreach ($menu as $m ) : ?>
+                            <?php $i = 1; ?>
+                            <?php foreach ($menu as $m) : ?>
                                 <tr>
                                     <th scope="row"><?= $i ?></th>
-                                    <td><?=$m['menu']?></td>
+                                    <td><?= $m['menu'] ?></td>
                                     <td>
-                                        <a class="btn icon-btn btn-outline-success" href="<?= base_url('menu/edit_menu/').$m['id'] ?>"><i class="oi oi-pencil"></i></a>
+                                        <a class="btn icon-btn btn-outline-success" href="<?= base_url('menu/edit_menu/') . $m['id'] ?>"><i class="oi oi-pencil"></i></a>
 
-                                        <a class="btn icon-btn btn-outline-danger" href="<?= base_url('menu/hapus_menu/').$m['id']?>"><i class="oi oi-trash"></i></a>
+                                        <a class="btn icon-btn btn-outline-danger" href="<?= base_url('menu/hapus_menu/') . $m['id'] ?>"><i class="oi oi-trash"></i></a>
                                     </td>
                                 </tr>
                                 <?php $i++; ?>
@@ -71,26 +69,25 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="newMenuModalLabel">Add New Menu</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form method="post" action="<?=base_url('menu') ?>">
-            <div class="modal-body">
-                <div class="form-group">
-                    <input type="text"class="form-control" id="menu" name="menu" placeholder="Menu name">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newMenuModalLabel">Add New Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="<?= base_url('menu') ?>">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="menu" name="menu" placeholder="Menu name">
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </div>
-        </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-</div>
-
