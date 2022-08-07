@@ -2348,8 +2348,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #fe4f02;
-  border-color: #fe4f02;
+  background-color: #4e73df;
+  border-color: #4e73df;
 }
 
 .btn-primary:hover {
@@ -4733,7 +4733,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #4e73df;
+  color:  #fe4f02;
   background-color: #fff;
   border: 1px solid #dddfeb;
 }
@@ -4766,8 +4766,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #fe4f02;
+  border-color: #fe4f02;
 }
 
 .page-item.disabled .page-link {

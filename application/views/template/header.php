@@ -14,9 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!-- Custom styles for this template/-->
-    <link type="text/css" href="<?= base_url('assets/template/') ?>css/sb-admin-2.css" rel="stylesheet">
+    <link type="text/css" href="<?= base_url('assets/template/') ?>css/style.css" rel="stylesheet">
 
     <link href="<?= base_url('assets/template/') ?>vendor/summernote/summernote-bs4.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+
 
     <style>
         .warnaSidebar {

@@ -1,54 +1,60 @@
+<div class="container">
 
-<div class="authentication-wrapper authentication-1 px-7">
-  <div class="authentication-inner py-5">
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
 
-    <!-- [ Logo ] Start -->
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="ui-w-60">
-        <div class="w-100 position-relative">
-          <img src="<?=base_url('assets/images/')?>logo.png" alt="Brand Logo" class="img-fluid">
-        </div>
-      </div>
-    </div>
-    <!-- [ Logo ] End -->
-    <div class="d-flex justify-content-center mt-4">
-      <h3>Welcome Back</h3>
+    <div class="col-lg-6">
 
-    </div>
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg">
+              <div class="p-5">
+                <div class="text-center">
+                  <img src="<?= base_url('assets/images/logo.png') ?>" width="70" alt="">
+                  <br>
+                  <br>
+                  <p class="mb-4">Kaderisasi Partai PKS</p>
+                </div>
 
-    <?php echo $this->session->flashdata('message') ?>
-    
+                <?php echo $this->session->flashdata('message') ?>
+                <form class="user" method="POST" action="<?= base_url('auth') ?>">
+                  <div class="form-group">
+                  <label for="" class="text-pks font-weight-bold">Email</label>
 
+                    <input type="text" class="form-control " id="email" name="email" placeholder="Email" name="email" value="<?php echo set_value('email') ?>">
+                    <?= form_error('email', '<small class="text-danger">', '</small>') ?>
+                  </div>
 
-    <!-- [ Form ] Start -->
-    <form class="my-3" method="post" action="<?= base_url('auth') ?>">
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" name="email" id="email">
-        <div class="clearfix"></div>
-      </div>
-      <div class="form-group">
-        <label class="form-label d-flex justify-content-between align-items-end">
-          <span>Password</span>
-          <!-- <a href="pages_authentication_password-reset.html" class="d-block small">Forgot password?</a> -->
-        </label>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" autocomplete="current-password" name="password" id="id_password" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2"><i class="far fa-eye" id="togglePassword"></i></span>
+                  <div class="form-group">
+                    <label for="" class="text-pks font-weight-bold">Password</label>
+                    <div class="input-group mb-3">
+                      <input type="password" class="form-control text-pks" placeholder="Konfirmasi password..." id="password1" name="password1">
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-fw fa-eye" id="togglePassword1"></i></span>
+                      </div>
+                    </div>
+                    <?= form_error('password1', '<small class="text-danger">', '</small>') ?>
+
+                  </div>
+                  <center>
+                    <div class="col-lg-5">
+                      <button type="submit" class="btn btn-pks btn-user btn-block">
+                        Login
+                      </button>
+                    </div>
+                  </center>
+                  <br>
+                </form>
+                <hr>
+                <div class="text-center">
+                  <a class="small" href="<?= base_url('auth/sign_up') ?>">Create an Account!</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="clearfix"></div>
       </div>
-      <div class="d-flex justify-content-center mt-4">
-        <button type="submit" class="btn btn-primary">Sign In</button>
-      </div>
-    </form>
-    <!-- [ Form ] End -->
-    <div class="text-center text-muted">
-      Don't have an account yet?
-      <a href="<?=base_url('auth/sign_up') ?>">Sign Up</a>
     </div>
   </div>
-</div>
-    <!-- [ content ] End

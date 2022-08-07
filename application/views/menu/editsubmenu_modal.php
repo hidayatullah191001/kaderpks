@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newMenuModalLabel">Edit Submenu</h5>
+        <h5 class="modal-title text-pks font-weight-bold" id="newMenuModalLabel">Edit Submenu</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -11,10 +11,10 @@
       <form method="post" action="<?=base_url('menu/edit/').$sm['id'] ?>">
         <div class="modal-body">
          <div class="form-group">
-           <input type="text"class="form-control" id="title" name="title" placeholder="Submenu title" value="<?=$sm['title'] ?>">
+           <input type="text" class="form-control text-pks" id="title" name="title" placeholder="Submenu title" value="<?=$sm['title'] ?>">
          </div>
          <div class="form-group">
-          <select class="custom-select" name="menu_id" id="menu_id">
+          <select class="form-control text-pks" name="menu_id" id="menu_id">
             <?php foreach ($menu as $mn ): ?>
               <?php if ($sm['menu_id'] == $mn['id']) {
                 echo "<option selected value= '".$mn['id']."'>".$mn['menu']."</option>'";
@@ -26,16 +26,16 @@
           </select>
         </div>
         <div class="form-group">
-         <input type="text"class="form-control" id="url" name="url" placeholder="Submenu url" readonly="" value="<?=$sm['url'] ?>">
+         <input type="text"class="form-control text-pks" id="url" name="url" placeholder="Submenu url" readonly="" value="<?=$sm['url'] ?>">
        </div>
        <div class="form-group">
-         <input type="text"class="form-control" id="icon" name="icon" placeholder="Submenu icon" value="<?=$sm['icon'] ?>">
+         <input type="text"class="form-control text-pks" id="icon" name="icon" placeholder="Submenu icon" value="<?=$sm['icon'] ?>">
        </div>
        <div class="form-group">
          <div class="form-check">
           <?php
           $data = array(
-            'class' => 'form-check-input'
+            'class' => 'form-check-input text-pks'
           );
            if ($sm['is_active'] == 0): ?>
           <?= form_checkbox('is_active','1',FALSE, $data)."Active?";?>
@@ -49,7 +49,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-pks">Edit</button>
   </div>
 </form>
 </div>

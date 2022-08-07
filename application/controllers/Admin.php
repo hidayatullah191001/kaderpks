@@ -105,6 +105,8 @@ class Admin extends CI_Controller {
 		$data['userr'] = $this->db->get('user')->result_array();
 
 		$data['role'] = $this->db->get('user_role')->result_array();
+		$data['dpra'] = $this->db->get('dpra')->result_array();
+		$data['dpc'] = $this->db->get('dpc')->result_array();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -120,37 +122,42 @@ class Admin extends CI_Controller {
 		$data['userr'] = $this->db->get('user')->result_array();
 
 		$data['role'] = $this->db->get('user_role')->result_array();
+		$data['dpra'] = $this->db->get('dpra')->result_array();
+		$data['dpc'] = $this->db->get('dpc')->result_array();
 
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
 			'is_unique' => 'This email has already registered!'
 		]);
-		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]');
+		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
+            'matches' => 'Password dont match!',
+            'min_length' => 'Password to short!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Passoword', 'required|trim|matches[password1]');
 
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'User Registration';
-			$this->load->view('template/header', $data);
-			$this->load->view('template/sidebar', $data);
-			$this->load->view('template/navbar', $data);
-			$this->load->view('admin/add_user');
-			$this->load->view('template/footer');
+			$this->session->set_flashdata('message', '
+				<div class="alert alert-danger text-danger">
+				Something wrong!
+				</div>');
+			redirect('menu/submenu');
 		} else {
 			$data = [
 				'name' => htmlspecialchars($this->input->post('name', true)),
 				'email' => htmlspecialchars($this->input->post('email', true)),
 				'image' => 'default.jpg',
-				'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-				'role_id' => 1,
-				'dpra' => 0,
-				'dpc'=>0,
+				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+				'role_id' => htmlspecialchars($this->input->post('role_id', true)),
+				'dpra' => htmlspecialchars($this->input->post('dpra_id', true)),
+				'dpc'=> htmlspecialchars($this->input->post('dpc_id', true)),
 				'is_active' => 1,
 				'date_created' => time()
 			];
 			$this->db->insert('user', $data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success text-success">
-				Congratulation! your account has been crated. Please Login!
+				Akun berhasil dibuat!
 				</div>');
-			redirect('auth');
+			redirect('admin/user_management');
 		}
 	}
 }

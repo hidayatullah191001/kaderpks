@@ -144,9 +144,6 @@ class Menu extends CI_Controller
 			$this->EditMenu_model->update_menu();
 			$this->session->set_flashdata('message', '
 				<div class="alert alert-success text-success">
-				<div class = "icon text-white">
-				<i class="fas fa-fw fa-check"></i>
-				</div>
 				Successfully changed!
 				</div>');
 			redirect('menu');

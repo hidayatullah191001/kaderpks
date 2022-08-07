@@ -21,10 +21,8 @@
                     <i class="fas fa-fw fa-plus"></i>
                 </span>
                 <span class="text">Add New Role</span></a>
-
                 <br><br>
             <div class="card">
-                <h6 class="card-header orangePks">All Role</h6>
                 <div class="card-body">
                 <table class="table table-hover">
                 <thead class="text-white bg-pks">

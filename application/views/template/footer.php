@@ -40,21 +40,39 @@
 
  <!-- Core plugin JavaScript-->
  <script src="<?= base_url('assets/template/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
- <script src="<?= base_url('assets/template/') ?>vendor/datatables/jquery.dataTables.min.js"></script>
- <script src="<?= base_url('assets/template/') ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
  <!-- Custom scripts for all pages-->
  <script src="<?= base_url('assets/template/') ?>js/sb-admin-2.min.js"></script>
+
+ <!-- Data Table -->
+
+ <!-- Bootstrap 5 -->
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+ <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.2.0/js/dataTables.fixedHeader.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+
+ <script type="text/javascript">
+     $(document).ready(function() {
+         var table = $('#tableuser').DataTable({
+             responsive: true
+         });
+
+         new $.fn.dataTable.FixedHeader(table);
+     });
+
+     var myCarousel = document.querySelector('#myCarousel')
+     var carousel = new bootstrap.Carousel(myCarousel)
+ </script>
 
  <script>
      $('.custom-file-input').on('change', function() {
          let fileName = $(this).val().split('\\').pop();
          $(this).next('.custom-file-label').addClass("selected").html(fileName);
-     });
- </script>
-
- <script type="text/javascript">
-     $(document).ready(function() {
-         $('#datatable').DataTable();
      });
  </script>
 
@@ -77,6 +95,36 @@
 
      });
  </script>
+
+ <!-- See Password -->
+ <script type="text/javascript">
+     const togglePassword1 = document.querySelector('#togglePassword1');
+     const password1 = document.querySelector('#password1');
+
+     togglePassword1.addEventListener('click', function(e) {
+         // toggle the type attribute
+         const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+         password1.setAttribute('type', type);
+         // toggle the eye slash icon
+         this.classList.toggle('fa-eye-slash');
+     });
+ </script>
+
+
+ <!-- See Konfirmasi Password -->
+ <script type="text/javascript">
+     const togglePassword2 = document.querySelector('#togglePassword2');
+     const password2 = document.querySelector('#password2');
+
+     togglePassword2.addEventListener('click', function(e) {
+         // toggle the type attribute
+         const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+         password2.setAttribute('type', type);
+         // toggle the eye slash icon
+         this.classList.toggle('fa-eye-slash');
+     });
+ </script>
+
 
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 

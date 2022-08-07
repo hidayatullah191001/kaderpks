@@ -1,43 +1,73 @@
 <!DOCTYPE html>
-
-<html lang="en" class="material-style layout-fixed">
+<html lang="en">
 
 <head>
-    <title><?=$title ?></title>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description" content="Empire Bootstrap admin template made using Bootstrap 4, it has tons of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
-    <meta name="keywords" content="Empire, bootstrap admin template, bootstrap admin panel, bootstrap 4 admin template, admin template">
-    <meta name="author" content="Srthemesvilla" />
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <title><?= $title ?></title>
 
-    <!-- Icon fonts -->
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/fonts/fontawesome.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/fonts/ionicons.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/fonts/linearicons.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/fonts/open-iconic.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/fonts/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/fonts/feather.css">
+    <!-- Custom fonts for this template-->
+    <link href="<?= base_url('assets/template/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Core stylesheets -->
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/css/bootstrap-material.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/css/shreerang-material.css">
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/css/uikit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-    <!-- Libs -->
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/libs/perfect-scrollbar/perfect-scrollbar.css">
-    <!-- Page -->
-    <link rel="stylesheet" href="<?=base_url('assets/template/')?>assets/css/pages/authentication.css">
+    <!-- Custom styles for this template/-->
+    <link type="text/css" href="<?= base_url('assets/template/') ?>css/style.css" rel="stylesheet">
+
+    <link href="<?= base_url('assets/template/') ?>vendor/summernote/summernote-bs4.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+
+
+    <style>
+        .warnaSidebar {
+            background-image: linear-gradient(to right top, #111820, #171a21, #1c1d21, #202022, #232323);
+        }
+
+        .text-pks {
+            color: #19242e !important;
+        }
+
+        .text-pksOrange {
+            color: #fe4f02 !important;
+        }
+
+        .textHead {
+            color: #940000;
+        }
+
+        .orangePks {
+            color: #fe4f02;
+        }
+
+        .bg-pks {
+            background-color: #fe4f02 !important;
+        }
+
+        .btn-pks {
+            color: #fff;
+            background-color: #fe4f02;
+            border-color: #fe4f02;
+        }
+
+        .btn-pks:hover {
+            color: #fff;
+            background-color: #111820;
+            border-color: #111820;
+        }
+    </style>
+
+    <script type="text/javascript" src="<?= base_url('assets/template/') ?>vendor/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="<?= base_url('assets/template/') ?>vendor/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="<?= base_url('assets/template/') ?>vendor/summernote/summernote-bs4.min.js"></script>
+
 </head>
 
-<body>
-    <!-- [ Preloader ] Start -->
-    <div class="page-loader">
-        <div class="bg-primary"></div>
-    </div>
-    <!-- [ Preloader ] End -->
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">

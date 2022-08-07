@@ -16,7 +16,7 @@ class Auth extends CI_Controller {
 			redirect('user');
 		}
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		$this->form_validation->set_rules('password1', 'Password', 'trim|required');
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Login page';
@@ -32,7 +32,7 @@ class Auth extends CI_Controller {
 	private function _login()
 	{
 		$email = $this-> input->post('email');
-		$password = $this-> input->post('password');
+		$password = $this-> input->post('password1');
 
 		$user = $this-> db ->get_where('user', ['email'=> $email])->row_array();
 
@@ -48,10 +48,13 @@ class Auth extends CI_Controller {
 					$this ->session->set_userdata($data);
 					if ($user['role_id'] == 1){
 						redirect('admin');
-					}else{
-						redirect('user');
+					}else if($user['role_id'] == 2){
+						redirect('dpd');
+					}else if($user['role_id'] == 3){
+						redirect('dpc');
+					}else if($user['role_id'] == 4){
+						redirect('dpra');
 					}
-
 				}else{
 					$this-> session ->set_flashdata('message', '<div class = "alert alert-danger text-danger" role="alert"> Password anda salah</div>');
 					redirect('auth');                       
