@@ -7,13 +7,6 @@
     <div class="row">
         <div class="col-lg-6">
 
-            <?= form_error('menu', '<div class="alert alert-danger text-danger">
-         				<div class = "icon text-white">
-         				<i class="fas fa-fw fa-ban"></i>
-         				</div>
-         				', '
-         				</div>') ?>
-
             <?= $this->session->flashdata('message') ?>
 
             <a data-toggle="modal" data-target="#newRoleModal" class="btn btn-pks btn-icon-split mb-3">

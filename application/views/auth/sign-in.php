@@ -23,7 +23,7 @@
                   <div class="form-group">
                   <label for="" class="text-pks font-weight-bold">Email</label>
 
-                    <input type="text" class="form-control " id="email" name="email" placeholder="Email" name="email" value="<?php echo set_value('email') ?>">
+                    <input type="text" class="form-control text-pks" id="email" name="email" placeholder="Email" name="email" value="<?php echo set_value('email') ?>">
                     <?= form_error('email', '<small class="text-danger">', '</small>') ?>
                   </div>
 
@@ -32,7 +32,7 @@
                     <div class="input-group mb-3">
                       <input type="password" class="form-control text-pks" placeholder="Konfirmasi password..." id="password1" name="password1">
                       <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-fw fa-eye" id="togglePassword1"></i></span>
+                        <span class="input-group-text bg-white" id="basic-addon2"><i class="fas fa-fw fa-eye" id="togglePassword1"></i></span>
                       </div>
                     </div>
                     <?= form_error('password1', '<small class="text-danger">', '</small>') ?>

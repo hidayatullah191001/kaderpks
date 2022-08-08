@@ -116,7 +116,7 @@ class Auth extends CI_Controller {
 
         $this->session->set_flashdata('message', '
             <div class="alert alert-success text-success">
-            You has been logout!
+            Kamu berhasil keluar aplikasi!
             </div>');
         redirect('auth');
     }
