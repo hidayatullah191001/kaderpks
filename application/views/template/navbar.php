@@ -23,12 +23,12 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="mr-2 d-none d-lg-inline text-pksOrange"><?=$user['name'] ?></span>
                     <img style="object-fit: cover;" class="img-profile rounded-circle"
-                    src="<?=base_url('assets/template/img/profile/') . $user['image'] ?>">
+                    src="<?=base_url('assets/images/profile/') . $user['image'] ?>">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?=base_url('user') ?>">
+                <a class="dropdown-item" href="<?=base_url('settings') ?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     My Profile
                 </a>
@@ -43,4 +43,4 @@
     </ul>
 
 </nav>
-                    <!-- End of Topbar -->
+<!-- End of Topbar -->

@@ -9,14 +9,13 @@
 
                 <?= $this->session->flashdata('message') ?>
                 <br>
-                <div class="card shadow-lg my-5">
+                <div class="card shadow-lg">
                   <div class="card-header ">
                     <div class="row d-flex justify-content-between">
                       <div class="col text-pks font-weight-bold">
-                        Data Kader
                       </div>
                       <div class="float-right">
-                        <a href="<?=base_url('kader/tambah_kader/') ?>" type="button" class="btn btn-pks btn-sm">Tambah Kader</a>  
+                        <a href="<?=base_url('kantor/tambah_dpra/') ?>" type="button" class="btn btn-pks btn-sm">Tambah DPRa</a>  
                         <a href="" type="button" class="btn btn-danger btn-sm"><i class="far fa-file-pdf mr-2"></i>Pdf</a>  
                         <a href="" type="button" class="btn btn-success btn-sm"><i class="far fa-file-excel mr-2"></i>Excel</a>  
                       </div>
@@ -27,32 +26,38 @@
                      <thead class="bg-pks text-white">
                        <tr>
                          <th scope="col">No</th>
-                         <th scope="col">DPC</th>
-                         <th scope="col">DPRa</th>
-                         <th scope="col">No Anggota</th>
-                         <th scope="col">Nama Kader</th>
-                         <th scope="col">No Hp Kader</th>
-                         <th scope="col">Email Kader</th>
+                         <th scope="col">Nama DPC</th>
+                         <th scope="col">Nama DPRa</th>
+                         <th scope="col">No Telepon</th>
+                         <th scope="col">Alamat</th>
                          <th scope="col">Action</th>
                        </tr>
                      </thead>
                      <tbody>
                       <?php $i = 1 ?>
-                      <?php foreach ($kader as $kdr) : ?>
+                      <?php foreach ($dpra as $dpra) : ?>
                         <tr>
                           <td class="text-pks font-weight-bold"><?php echo $i++ ?></td>
-                          <td class="text-pks"><?=$kdr['nama_dpc'] ?></td>
-                          <td class="text-pks"><?=$kdr['nama_dpra'] ?></td>
-                          <td class="text-pks"><?=$kdr['no_anggota'] ?></td>
-                          <td class="text-pks"><?=$kdr['nama'] ?></td>
-                          <td class="text-pks"><?=$kdr['no_hp'] ?></td>
-                          <td class="text-pks"><?=$kdr['email'] ?></td>
+                          <td class="text-pks"><?=$dpra['nama_dpc'] ?></td>
+                          <td class="text-pks"><?=$dpra['nama_dpra'] ?></td>
+                          <td class="text-pks"><?=$dpra['no_telp_dpra'] ?></td>
+                          <td class="text-pks">
+                            <?php
+                            $kalimat = $dpra['alamat_dpra'];
+                            $max = 40 ;
+                            $cetak = substr($kalimat, 0, $max);
+                            if (strlen($kalimat)>$max) {
+                              echo $cetak.'...';
+                            }else{
+                              echo $cetak;
+                            }?>
+                          </td>
                           <td width="100">
-                            <a href="<?= base_url('kader/edit_kader/') . $kdr['id'] ?>" class="btn btn-success btn-circle btn-sm"><i class="fas fa-fw fa-edit"></i></a>
-                            <a data-toggle="modal" data-target="#deleteKaderModal<?=$kdr['id']?>"  class="btn btn-danger btn-circle btn-sm"><i class="fas fa-fw fa-trash"></i></a>
+                            <a href="<?= base_url('kantor/edit_dpra/').$dpra['id'] ?>" class="btn btn-success btn-circle btn-sm"><i class="fas fa-fw fa-edit"></i></a>
+                            <a data-toggle="modal" data-target="#deleteDpraModal<?=$dpra['id']?>"  class="btn btn-danger btn-circle btn-sm"><i class="fas fa-fw fa-trash"></i></a>
                           </td>
                         </tr>
-                        <?php include "deleteKader_modal.php" ?>
+                        <?php include "deleteDpra_modal.php" ?>
                       <?php endforeach ?>
                     </tbody>
                   </table>

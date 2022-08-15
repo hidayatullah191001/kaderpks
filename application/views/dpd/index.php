@@ -76,8 +76,8 @@
                                     <h6 class="text-pks">Username : <b><?=$pengguna['name'] ?></b></h6>
                                     <h6 class="text-pks">Email : <b><?=$pengguna['email'] ?></b></h6>
                                     <h6 class="text-pks">Role : <b><?=$pengguna['role'] ?></b></h6>
-                                    <h6 class="text-pks">DPRa : <b><?=$pengguna['nama_dpra'] ?></b></h6>
-                                    <h6 class="text-pks">DPC : <b><?=$pengguna['nama_dpc'] ?></b></h6>
+                                    <h6 class="text-pks">DPRa : <b><?=$nama_dpra?></b></h6>
+                                    <h6 class="text-pks">DPC : <b><?=$nama_dpc ?></b></h6>
                                 </div>
                             </div>
                         </div>

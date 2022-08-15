@@ -45,7 +45,7 @@
         $subMenu = $this->db->query($querySubMenu)->result_array();
         ?>
 
-        <?php foreach ($subMenu as $sm) :?>
+        <?php foreach ($subMenu as $sm) : ?>
             <?php if ($title == $sm['title']):?>
                 <li class="nav-item active">
                 <?php else :  ?>

@@ -69,6 +69,7 @@ class Kader extends CI_Controller {
 				'pendidikan' => $this->input->post('pendidikan'),
 				'catatan' => $this->input->post('catatan'),
 				'tanggal_daftar' => date('Y-m-d H:i:s'),
+				'persetujuan'=> 1,
 			];
 			$this->db->insert('kader', $data);
 			$this->session->set_flashdata('message', '
@@ -78,7 +79,6 @@ class Kader extends CI_Controller {
 			redirect('kader');
 		}
 	}
-
 
 	public function edit_kader($idkader = null){
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

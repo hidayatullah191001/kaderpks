@@ -19,6 +19,7 @@ class Dpra extends CI_Controller {
 		$dpra = $data['user']['dpra'];
 		$dpc = $data['user']['dpc'];
 
+
 		$data['pengguna'] = $this->User_model->getDataUser($this->session->userdata('email'));
 		$data['jumlah_kader'] = $this->Kader_model->jumlahKader($dpra, $dpc);
 
@@ -138,10 +139,10 @@ class Dpra extends CI_Controller {
 			'is_unique' => 'This email has already registered!'
 		]);
 		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
-            'matches' => 'Password dont match!',
-            'min_length' => 'Password to short!'
-        ]);
-        $this->form_validation->set_rules('password2', 'Passoword', 'required|trim|matches[password1]');
+			'matches' => 'Password dont match!',
+			'min_length' => 'Password to short!'
+		]);
+		$this->form_validation->set_rules('password2', 'Passoword', 'required|trim|matches[password1]');
 
 		if ($this->form_validation->run() == false) {
 			$this->session->set_flashdata('message', '

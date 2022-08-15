@@ -15,11 +15,6 @@
                       <div class="col text-pks font-weight-bold">
                         Data Kader
                       </div>
-                      <div class="float-right">
-                        <a href="<?=base_url('kader/tambah_kader/') ?>" type="button" class="btn btn-pks btn-sm">Tambah Kader</a>  
-                        <a href="" type="button" class="btn btn-danger btn-sm"><i class="far fa-file-pdf mr-2"></i>Pdf</a>  
-                        <a href="" type="button" class="btn btn-success btn-sm"><i class="far fa-file-excel mr-2"></i>Excel</a>  
-                      </div>
                     </div>
                   </div>
                   <div class="card-body">
@@ -52,7 +47,6 @@
                             <a data-toggle="modal" data-target="#deleteKaderModal<?=$kdr['id']?>"  class="btn btn-danger btn-circle btn-sm"><i class="fas fa-fw fa-trash"></i></a>
                           </td>
                         </tr>
-                        <?php include "deleteKader_modal.php" ?>
                       <?php endforeach ?>
                     </tbody>
                   </table>

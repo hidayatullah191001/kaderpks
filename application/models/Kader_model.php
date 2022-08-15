@@ -9,15 +9,35 @@ class Kader_model extends CI_Model
 		FROM `kader` 
 		INNER JOIN `dpra` on `dpra`.`id` = `kader`.`dpra_id` 
 		INNER JOIN `dpc` on `dpc`.`id` = `kader`.`dpc_id`
-		WHERE `kader`.`dpra_id` = $dpra AND `kader`.`dpc_id` = $dpc";
+		WHERE `kader`.`dpra_id` = $dpra AND `kader`.`dpc_id` = $dpc AND `kader`.`persetujuan` = 1";
 		return $this->db->query($query)->result_array();
 	}
 
+	public function getAllDataKaderByDpc($dpc){
+		$query = "SELECT `kader`.*, `dpc`.`nama_dpc`, `dpra`.`nama_dpra` 
+		FROM `kader` 
+		INNER JOIN `dpra` on `dpra`.`id` = `kader`.`dpra_id` 
+		INNER JOIN `dpc` on `dpc`.`id` = `kader`.`dpc_id`
+		WHERE `kader`.`dpc_id` = $dpc AND `kader`.`persetujuan` = 1";
+		return $this->db->query($query)->result_array();
+	}
+
+	public function getDataKaderByNameNIK($nama, $nik){
+		$query = "SELECT `kader`.*, `dpc`.`nama_dpc`, `dpra`.`nama_dpra` 
+		FROM `kader` 
+		INNER JOIN `dpra` on `dpra`.`id` = `kader`.`dpra_id` 
+		INNER JOIN `dpc` on `dpc`.`id` = `kader`.`dpc_id`
+		WHERE `kader`.`nama` LIKE '$nama' AND `kader`.`nik` LIKE '$nik'";
+		return $this->db->query($query)->row_array();
+	}
+
 	public function getDataKaderById($idkader){
-		$this->db->select('*');
-		$this->db->from('kader');
-		$this->db->where('id', $idkader);
-		return $this->db->get()->row_array();
+		$query = "SELECT `kader`.*, `dpc`.`nama_dpc`, `dpra`.`nama_dpra` 
+		FROM `kader` 
+		INNER JOIN `dpra` on `dpra`.`id` = `kader`.`dpra_id` 
+		INNER JOIN `dpc` on `dpc`.`id` = `kader`.`dpc_id`
+		WHERE `kader`.`id` = '$idkader'";
+		return $this->db->query($query)->row_array();
 	}
 
 	public function updateKader($idkader){

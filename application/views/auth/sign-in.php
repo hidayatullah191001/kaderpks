@@ -48,9 +48,6 @@
                   <br>
                 </form>
                 <hr>
-                <div class="text-center">
-                  <a class="small" href="<?= base_url('auth/sign_up') ?>">Create an Account!</a>
-                </div>
               </div>
             </div>
           </div>

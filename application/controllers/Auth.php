@@ -13,7 +13,7 @@ class Auth extends CI_Controller {
 	{
 		if($this->session->userdata('email'))
 		{
-			redirect('user');
+			is_logged_id();
 		}
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('password1', 'Password', 'trim|required');
@@ -45,7 +45,7 @@ class Auth extends CI_Controller {
 						'email' => $user ['email'],
 						'role_id' => $user ['role_id']
 					];
-					$this ->session->set_userdata($data);
+					$this->session->set_userdata($data);
 					if ($user['role_id'] == 1){
 						redirect('admin');
 					}else if($user['role_id'] == 2){
@@ -64,7 +64,6 @@ class Auth extends CI_Controller {
 				$this-> session ->set_flashdata('message', '<div class = "alert alert-danger text-danger" role="alert"> Email anda belum diaktivasi. Hubungi admin untuk meminta aktivasi akun!</div>');
 				redirect('auth');
 			}
-
 		}else{
 			$this-> session ->set_flashdata('message', '<div class = "alert alert-danger text-danger" role="alert"> Email tidak terdaftar! </div>');
 			redirect('auth');

@@ -140,7 +140,7 @@ class Admin extends CI_Controller {
 				<div class="alert alert-danger text-danger">
 				Something wrong!
 				</div>');
-			redirect('menu/submenu');
+			redirect('admin/user_management');
 		} else {
 			$data = [
 				'name' => htmlspecialchars($this->input->post('name', true)),
